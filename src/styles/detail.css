@@ -1,0 +1,348 @@
+/* ============ Manga Detail ============ */
+
+.detail-page {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.detail-backdrop {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 480px;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.detail-backdrop-art {
+  position: absolute;
+  inset: -8% 0 auto 0;
+  width: 100%;
+  height: 130%;
+  opacity: 0.4;
+}
+.detail-backdrop-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
+}
+.detail-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, var(--bg) 95%);
+}
+
+.detail-main {
+  position: relative;
+  z-index: 1;
+  padding-top: 20px;
+}
+
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  margin-bottom: 26px;
+  transition: all 0.2s ease;
+}
+.detail-back:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateX(-3px);
+}
+
+.detail-head {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.detail-cover-wrap {
+  position: relative;
+}
+.detail-cover {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.65);
+}
+.detail-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.detail-title {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.detail-alt {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.detail-genres {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.detail-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.detail-info-item {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.detail-info-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 3px;
+}
+.detail-info-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: block;
+}
+.detail-info-accent {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.detail-desc {
+  color: var(--text-2);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  max-width: 720px;
+  margin-bottom: 22px;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.detail-bookmarked {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--gradient-soft);
+}
+
+/* ============ Chapter list ============ */
+
+.chapter-section {
+  margin-top: 44px;
+  padding: 24px;
+}
+
+.chapter-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.chapter-head h2 {
+  font-size: 1.2rem;
+}
+.chapter-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-left: 8px;
+}
+
+.chapter-lang-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  vertical-align: middle;
+}
+.chapter-lang-badge.chapter-lang-th {
+  color: #fff;
+  background: linear-gradient(135deg, #7c3aed, #db2777);
+  border-color: transparent;
+}
+
+.chapter-tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.chapter-search,
+.chapter-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  transition: border-color 0.2s ease;
+}
+.chapter-search:focus-within,
+.chapter-filter:focus-within {
+  border-color: var(--accent);
+}
+.chapter-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 170px;
+  font-size: 0.86rem;
+}
+.chapter-filter select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.86rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chapter-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.chapter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 10px;
+  border-radius: 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+.chapter-row:last-child {
+  border-bottom: none;
+}
+.chapter-row:hover {
+  background: var(--gradient-soft);
+  transform: translateX(4px);
+}
+
+.chapter-num {
+  width: 64px;
+  flex-shrink: 0;
+  display: flex;
+}
+.chapter-num-text {
+  font-family: "Space Grotesk", "Prompt", sans-serif;
+  font-weight: 700;
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+
+.chapter-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+.chapter-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chapter-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+}
+
+.chapter-views {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.chapter-read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--gradient-soft);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.chapter-row:hover .chapter-read-btn {
+  background: var(--gradient);
+  color: #fff;
+  box-shadow: 0 8px 20px -8px var(--glow);
+}
+
+.chapter-empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 30px;
+}
+
+.load-more-wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.load-more {
+  min-width: 220px;
+}
+
+/* Not found */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 120px 20px;
+}
+.not-found h1 {
+  font-size: 4rem;
+}
