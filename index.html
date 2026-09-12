@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#07070d" />
+    <meta name="description" content="MANGA NOVA — แพลตฟอร์มอ่านมังงะออนไลน์ระดับพรีเมียม" />
+    <title>MANGA NOVA — อ่านมังงะออนไลน์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://mangablackcat.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        function show(kind, message) {
+          var el = document.getElementById("__boot_errors");
+          if (!el) {
+            el = document.createElement("pre");
+            el.id = "__boot_errors";
+            el.style.cssText =
+              "position:fixed;top:0;left:0;right:0;z-index:99999;margin:0;background:#ffebee;color:#b71c1c;padding:10px 14px;font:13px/1.5 monospace;white-space:pre-wrap;border-bottom:2px solid #b71c1c";
+            (document.body || document.documentElement).appendChild(el);
+          }
+          el.textContent += "[" + kind + "] " + message + "\n";
+        }
+        window.addEventListener("error", function (e) {
+          show(
+            "error",
+            (e.message || "unknown") + " @ " + (e.filename || "?") + ":" + (e.lineno || "?") + ":" + (e.colno || "?")
+          );
+        });
+        window.addEventListener("unhandledrejection", function (e) {
+          var reason = e.reason;
+          show("promise", reason && reason.message ? reason.message : String(reason));
+        });
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
